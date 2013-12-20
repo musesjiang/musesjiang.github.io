@@ -1,0 +1,55 @@
+body {
+		background-color: #03a17c;
+}
+
+
+
+.hex-body {
+    position:relative;
+    padding-top: 80px;
+    .hexes {
+        width:660px;
+        padding: 0 163px;
+        overflow: hidden;
+        margin-top: -68px;
+        position:relative;
+        z-index: 5;
+    }
+
+    .hexes-outset {
+        padding: 0;
+        width: 980px;
+    }
+
+    .hex {
+        width: 300px;
+        float: left;
+        margin-right: 26px;
+        position: relative;
+
+        .idle, .overlay {
+            float: left;
+        }
+
+        .overlay{
+            margin-left: -300px;
+            opacity: 0;
+            -webkit-transition: opacity .2s ease-in-out;
+        }
+
+        &:hover .overlay{
+            cursor: pointer;
+            opacity: 0.5;
+        }
+    }
+}
+
+
+
+
+
+
+
+.nomargin {
+    margin: 0;
+}

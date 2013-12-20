@@ -1,0 +1,86 @@
+body {
+  background-color: #03a17c; }
+
+
+#hex-list {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0px;
+  list-style: none outside;
+}
+
+
+
+
+
+
+
+#hex-list .hex-item {
+  width: 301px;
+  height: 347px;
+  position: relative;
+  margin-top: -65px;
+}
+
+
+
+#hex-list .hex-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hex-item a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  max-width: 301px;
+  max-height: 347px;
+}
+
+.hex-item a .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  opacity: 0;
+  -webkit-transition: opacity .2s ease-in-out;
+}
+
+#hex-list .hex-item a:hover .overlay {
+  opacity: .3;
+}
+
+#hex-list .hex-item:nth-child(5n+3) {
+  margin-left: 328px;
+  margin-top: -347px;
+}
+
+#hex-list .hex-item:nth-child(5n+4) {
+  margin-left: 656px;
+  margin-top: -347px;
+}
+
+#hex-list .hex-item:nth-child(5n) {
+  margin-left: 164px;
+}
+
+#hex-list .hex-item:nth-child(5n+1) {
+  margin-left: 492px;
+  margin-top: -347px;
+}
+
+#hex-list .hex-item:first-child {
+  margin-top: 0px;
+}
+
+
+#background {
+  background: url('./images/bg.png') repeat-x;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  height: 502px;
+  width: 100%;
+}

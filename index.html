@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jianglai.me</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+<ul id="hex-list">
+    <li class="hex-item">
+    	<a href="#">
+        	<img src="images/item_01.png"/>
+            <canvas class="overlay" data-rgb="ec275f" width="301" height="347"></canvas>
+        </a>
+    </li>
+    <li class="hex-item">
+    	<a href="#">
+        	<img src="images/item_02.png"/>
+            <canvas class="overlay" data-rgb="e73100" width="301" height="347"></canvas>
+        </a>	
+    </li>
+    <li class="hex-item">
+    	<a href="#">
+        	<img src="images/item_03.png"/>
+            <canvas class="overlay" data-rgb="00aee7" width="301" height="347"></canvas>
+        </a>
+    </li>
+    <li class="hex-item">
+    	<a href="#">
+        	<img src="images/item_04.png"/>
+            <canvas class="overlay" data-rgb="1960bf" width="301" height="347"></canvas>
+        </a>
+    </li>
+    <li class="hex-item">
+    	<a href="#">
+        	<img src="images/item_05.png"/>
+            <canvas class="overlay" data-rgb="f02d8d" width="301" height="347"></canvas>
+        </a>
+    </li>
+    <li class="hex-item">
+    	<a href="#">
+        	<img src="images/item_06.png"/>
+            <canvas class="overlay" data-rgb="00a0fe" width="301" height="347"></canvas>
+        </a>
+    </li>
+    <li class="hex-item">
+    	<a href="#">
+        	<img src="images/item_01.png"/>
+            <canvas class="overlay" data-rgb="ec275f" width="301" height="347"></canvas>
+        </a>
+    </li>
+    <li class="hex-item">
+    	<a href="#">
+        	<img src="images/item_02.png"/>
+            <canvas class="overlay" data-rgb="e73100" width="301" height="347"></canvas>
+        </a>	
+    </li>
+    <li class="hex-item">
+    	<a href="#">
+        	<img src="images/item_03.png"/>
+            <canvas class="overlay" data-rgb="00aee7" width="301" height="347"></canvas>
+        </a>
+    </li>
+    <li class="hex-item">
+    	<a href="#">
+        	<img src="images/item_04.png"/>
+            <canvas class="overlay" data-rgb="1960bf" width="301" height="347"></canvas>
+        </a>
+    </li>
+    <li class="hex-item">
+    	<a href="#">
+        	<img src="images/item_05.png"/>
+            <canvas class="overlay" data-rgb="f02d8d" width="301" height="347"></canvas>
+        </a>
+    </li>
+    <li class="hex-item">
+    	<a href="#">
+        	<img src="images/item_06.png"/>
+            <canvas class="overlay" data-rgb="00a0fe" width="301" height="347"></canvas>
+        </a>
+    </li>
+</ul>
+
+<div id="background">
+</div>
+<script src="./img_config.js"></script>
+<script type="text/javascript">
+    
+    var hexes = document.getElementsByTagName('canvas'),
+    coords = [[150,0],[301,87],[301,261],[150,348],[0,261],[0,87]];
+
+    for (var i = 0; i < hexes.length; i++ ) {
+        var ico_overlay = hexes[i].getContext('2d');
+        var rgb = hexes[i].getAttribute('data-rgb');
+        ico_overlay.beginPath();
+        ico_overlay.moveTo(coords[5][0],coords[5][1]);
+        for (var j = 0; j < coords.length; j++) {
+            ico_overlay.lineTo(coords[j][0],coords[j][1]);
+        }
+        ico_overlay.closePath();
+        ico_overlay.fillStyle = '#' + rgb;
+        ico_overlay.fill();
+        ico_overlay.clip();
+    }
+
+
+</script>
+</body>
+</html>
