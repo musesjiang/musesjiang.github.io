@@ -73,7 +73,5 @@ var IMG_TPL = function(url, color){
 	con.setAttribute('width', 301);
 	con.setAttribute('height', 347);
 
-	return '<img src=' + url + '/>
-			<canvas class="overlay" data-rgb=' + color + ' width="301" height="347">
-			</canvas>'
+	return '<img src=' + url + '/><canvas class="overlay" data-rgb=' + color + ' width="301" height="347"></canvas>'
 };

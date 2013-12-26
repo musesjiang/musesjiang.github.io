@@ -3,6 +3,10 @@
 <head>
 	<title>Jianglai.me</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="description" content="">
+    <meta name="author" content="姜莱">
+    <meta name="keywords" content="姜莱">
+    <meta name="robots" content="index, nofollow">
 </head>
 
 <body>
@@ -82,11 +86,25 @@
     </li>
 </ul>
 
+<div id="carousel">
+    <ul class="roundabout-holder" style="padding: 0px; position: relative;">
+        <li class="roundabout-moveable-item roundabout-in-focus"><img src='src/images/1.jpg'/></li>
+        <li class="roundabout-moveable-item"><img src='src/images/2.jpg'/></li>
+        <li class="roundabout-moveable-item"><img src='src/images/3.jpg'/></li>
+        <li class="roundabout-moveable-item"><img src='src/images/4.jpg'/></li>
+    </ul>
+</div>
+
+
 <div id="background">
 </div>
-<script src="./img_config.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.roundabout.min.js"></script>
+<script src="./js/jquery.easing.js"></script>
+<script src="./js/img_config.js"></script>
 <script type="text/javascript">
     
+$(function(){
     var hexes = document.getElementsByTagName('canvas'),
     coords = [[150,0],[301,87],[301,261],[150,348],[0,261],[0,87]];
 
@@ -103,6 +121,19 @@
         ico_overlay.fill();
         ico_overlay.clip();
     }
+
+    
+    
+    $('.roundabout-holder').roundabout({
+        minScale: -0.1,
+        duration: 500,
+        css3Scale: true,
+        tilt: 0.02,
+        responsive: true,
+        minOpacity: 1.0
+    });
+
+})
 
 
 </script>
