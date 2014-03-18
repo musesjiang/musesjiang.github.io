@@ -70,14 +70,14 @@ var IMG_CONFIG =
 
 
 var COORDS = [[150,0],[301,87],[301,261],[150,348],[0,261],[0,87]];
-
+var DEVICE_PIXEL_RATIO_IMG_TYPE = (window.devicePixelRatio === 1) ? 'sm' : 'lg';
 
 
 var createList = function(){
 	for (i in IMG_CONFIG) {
 		var _self = IMG_CONFIG[i];
 
-		var item = $('<li class="hex-item"><a href="#"><img src="src/'+ _self.name +'/icon_sm.png"/><canvas class="overlay" width="301" height="347"></canvas></a></li>');
+		var item = $('<li class="hex-item"><a href="#"><img src="src/'+ _self.name +'/icon_'+ DEVICE_PIXEL_RATIO_IMG_TYPE +'.png"/><canvas class="overlay" width="301" height="347"></canvas></a></li>');
 		
 		var hex = item.find('canvas');
 		var ico_overlay = hex[0].getContext('2d');
