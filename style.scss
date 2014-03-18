@@ -3,7 +3,7 @@ body {
 
 
 #hex-list {
-    width: 960px;
+    width: 1285px;
     margin: 0 auto;
     padding: 0px;
     list-style: none outside;
@@ -44,22 +44,46 @@ body {
             }
         }
 
-        &:nth-child(5n+3) {
-            margin-left: 328px;
-            margin-top: -347px;
-        }
-
-        &:nth-child(5n+4) {
+        &:nth-child(22n+1) {
             margin-left: 656px;
             margin-top: -347px;
         }
 
-        &:nth-child(5n) {
+        &:nth-child(22n+2), &:nth-child(22n+8), &:nth-child(22n+13), &:nth-child(22n+19) {
             margin-left: 164px;
         }
 
-        &:nth-child(5n+1) {
+        &:nth-child(22n+3), &:nth-child(22n+9), &:nth-child(22n+14), &:nth-child(22n+20) {
             margin-left: 492px;
+            margin-top: -347px;
+        }
+
+        &:nth-child(22n+4),&:nth-child(22n+10), &:nth-child(22n+15), &:nth-child(22n+21) {
+            margin-left: 820px;
+            margin-top: -347px;
+        }
+
+        &:nth-child(22n+6) {
+            margin-left: 328px;
+            margin-top: -347px;
+        }
+
+        &:nth-child(22n+7) {
+            margin-left: 656px;
+            margin-top: -347px;
+        }
+
+        &:nth-child(22n), &:nth-child(22n+11), &:nth-child(22n+16) {
+            margin-left: 328px;
+        }
+
+        &:nth-child(22n+12), &:nth-child(22n+17) {
+            margin-left: 656px;
+            margin-top: -347px;
+        }
+
+        &:nth-child(22n+18) {
+            margin-left: 984px;
             margin-top: -347px;
         }
 
@@ -101,6 +125,8 @@ body {
     }
 
     .roundabout-holder {
+        padding: 0px;
+        position: relative;
         list-style: none;
         padding: 0;
         margin: 100px auto;
@@ -113,9 +139,6 @@ body {
         height: 660px;
         width: 550px;
         margin: 0 0 5px;
-    }
-    .roundabout-in-focus {
-        cursor: auto;
     }
 }
 

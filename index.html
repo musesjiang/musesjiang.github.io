@@ -12,87 +12,10 @@
 <body>
 
 <ul id="hex-list">
-    <li class="hex-item">
-    	<a href="#">
-        	<img src="images/item_01.png"/>
-            <canvas class="overlay" data-rgb="ec275f" width="301" height="347"></canvas>
-        </a>
-    </li>
-    <li class="hex-item">
-    	<a href="#">
-        	<img src="images/item_02.png"/>
-            <canvas class="overlay" data-rgb="e73100" width="301" height="347"></canvas>
-        </a>	
-    </li>
-    <li class="hex-item">
-    	<a href="#">
-        	<img src="images/item_03.png"/>
-            <canvas class="overlay" data-rgb="00aee7" width="301" height="347"></canvas>
-        </a>
-    </li>
-    <li class="hex-item">
-    	<a href="#">
-        	<img src="images/item_04.png"/>
-            <canvas class="overlay" data-rgb="1960bf" width="301" height="347"></canvas>
-        </a>
-    </li>
-    <li class="hex-item">
-    	<a href="#">
-        	<img src="images/item_05.png"/>
-            <canvas class="overlay" data-rgb="f02d8d" width="301" height="347"></canvas>
-        </a>
-    </li>
-    <li class="hex-item">
-    	<a href="#">
-        	<img src="images/item_06.png"/>
-            <canvas class="overlay" data-rgb="00a0fe" width="301" height="347"></canvas>
-        </a>
-    </li>
-    <li class="hex-item">
-    	<a href="#">
-        	<img src="images/item_01.png"/>
-            <canvas class="overlay" data-rgb="ec275f" width="301" height="347"></canvas>
-        </a>
-    </li>
-    <li class="hex-item">
-    	<a href="#">
-        	<img src="images/item_02.png"/>
-            <canvas class="overlay" data-rgb="e73100" width="301" height="347"></canvas>
-        </a>	
-    </li>
-    <li class="hex-item">
-    	<a href="#">
-        	<img src="images/item_03.png"/>
-            <canvas class="overlay" data-rgb="00aee7" width="301" height="347"></canvas>
-        </a>
-    </li>
-    <li class="hex-item">
-    	<a href="#">
-        	<img src="images/item_04.png"/>
-            <canvas class="overlay" data-rgb="1960bf" width="301" height="347"></canvas>
-        </a>
-    </li>
-    <li class="hex-item">
-    	<a href="#">
-        	<img src="images/item_05.png"/>
-            <canvas class="overlay" data-rgb="f02d8d" width="301" height="347"></canvas>
-        </a>
-    </li>
-    <li class="hex-item">
-    	<a href="#">
-        	<img src="images/item_06.png"/>
-            <canvas class="overlay" data-rgb="00a0fe" width="301" height="347"></canvas>
-        </a>
-    </li>
+    
 </ul>
 
-<div id="carousel">
-    <ul class="roundabout-holder" style="padding: 0px; position: relative;">
-        <li class="roundabout-moveable-item roundabout-in-focus"><img src='src/images/1.jpg'/></li>
-        <li class="roundabout-moveable-item"><img src='src/images/2.jpg'/></li>
-        <li class="roundabout-moveable-item"><img src='src/images/3.jpg'/></li>
-        <li class="roundabout-moveable-item"><img src='src/images/4.jpg'/></li>
-    </ul>
+<div id="carousel" style="display:none;">
 </div>
 
 
@@ -105,33 +28,43 @@
 <script type="text/javascript">
     
 $(function(){
-    var hexes = document.getElementsByTagName('canvas'),
-    coords = [[150,0],[301,87],[301,261],[150,348],[0,261],[0,87]];
+    createList();
+    
+    $('#hex-list').on('click', 'li', function(e){
+        $('#carousel').show();
+        var _self = $(this);
+        var _name = _self.data('name');
+        var _images = _self.data('images');
+        var roundabout_holder = $('#' + _name);
 
-    for (var i = 0; i < hexes.length; i++ ) {
-        var ico_overlay = hexes[i].getContext('2d');
-        var rgb = hexes[i].getAttribute('data-rgb');
-        ico_overlay.beginPath();
-        ico_overlay.moveTo(coords[5][0],coords[5][1]);
-        for (var j = 0; j < coords.length; j++) {
-            ico_overlay.lineTo(coords[j][0],coords[j][1]);
+        if (roundabout_holder.length) {
+            roundabout_holder.show();
+        } else {
+            roundabout_holder = $('<ul id="'+ _name +'" class="roundabout-holder"></ul>');
+            for (i in _images) {
+                roundabout_holder.append($('<li class="roundabout-moveable-item"><img src="src/'+ _name +'/'+ _images[i] +'"/></li>'));
+            }
+            roundabout_holder.appendTo('#carousel').children('li').first().addClass('roundabout-in-focus');
+            $('#' + _name).roundabout({
+                minScale: -0.1,
+                duration: 500,
+                css3Scale: true,
+                tilt: 0.02,
+                responsive: true,
+                minOpacity: 1.0
+            });
         }
-        ico_overlay.closePath();
-        ico_overlay.fillStyle = '#' + rgb;
-        ico_overlay.fill();
-        ico_overlay.clip();
-    }
+    })
 
-    
-    
-    $('.roundabout-holder').roundabout({
-        minScale: -0.1,
-        duration: 500,
-        css3Scale: true,
-        tilt: 0.02,
-        responsive: true,
-        minOpacity: 1.0
+    $('#carousel').on('click', function(){
+        $(this).hide().find('ul').hide();
     });
+
+    $('#carousel').on('click', '.roundabout-in-focus', function(e){
+        e.stopPropagation();
+        var _self = $(this);
+        window.open(_self.find('img').attr('src'));
+    })
 
 })
 
