@@ -11,6 +11,18 @@
 
 <body>
 
+<div id="background">
+</div>
+
+<ul id="nav">
+    <li class="nav-item active" id="work"><canvas width="91" height="105"></canvas></li>
+    <li class="nav-item" id="food"><canvas width="91" height="105"></canvas></li>
+    <li class="nav-item" id="book"><canvas width="91" height="105"></canvas></li>
+    <li class="nav-item" id="photo"><canvas width="91" height="105"></canvas></li>
+    <li class="nav-item" id="logo-clone"><canvas width="91" height="105"></canvas></li>
+    <li class="nav-item" id="logo"><canvas width="91" height="105"></canvas></li>
+</ul>
+
 <ul id="hex-list">
     
 </ul>
@@ -19,8 +31,6 @@
 </div>
 
 
-<div id="background">
-</div>
 <script src="./js/jquery.min.js"></script>
 <script src="./js/jquery.roundabout.min.js"></script>
 <script src="./js/jquery.easing.js"></script>
@@ -28,6 +38,7 @@
 <script type="text/javascript">
     
 $(function(){
+    createNav();
     createList();
     
     $('#hex-list').on('click', 'li', function(e){
@@ -64,6 +75,12 @@ $(function(){
         e.stopPropagation();
         var _self = $(this);
         window.open(_self.find('img').attr('src'));
+    });
+
+    $('#nav').hover(function(){
+        $(this).children().addClass('show');
+    }, function(){
+        $(this).children().removeClass('show');
     })
 
 })

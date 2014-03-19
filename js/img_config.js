@@ -70,7 +70,35 @@ var IMG_CONFIG =
 
 
 var COORDS = [[150,0],[301,87],[301,261],[150,348],[0,261],[0,87]];
+var NAV_COORDS = [[45,0],[91,26],[91,79],[45,105],[0,79],[0,26]];
 var DEVICE_PIXEL_RATIO_IMG_TYPE = (window.devicePixelRatio === 1) ? 'sm' : 'lg';
+
+
+var createNav = function(){
+	var hexes = $('#nav li');
+	var _color = '';
+	for (var i = 0; i < hexes.length; i++) {
+		switch (hexes[i].id) {
+			case 'work':
+				_color = '13b18c';
+				break;
+			case 'logo':
+			case 'logo-clone':
+				_color = 'fe3e67';
+				break;
+			case 'food':
+				_color = 'ffab1f';
+				break;
+			case 'book':
+				_color = '34a2e7';
+				break;
+			case 'photo':
+				_color = 'fb5616';
+				break;
+		}
+		canvasHex(hexes[i].getElementsByTagName('canvas')[0], NAV_COORDS, _color);
+	}
+};
 
 
 var createList = function(){
@@ -80,17 +108,9 @@ var createList = function(){
 		var item = $('<li class="hex-item"><img src="src/'+ _self.name +'/icon_'+ DEVICE_PIXEL_RATIO_IMG_TYPE +'.png"/><canvas class="overlay" width="301" height="347"></canvas></li>');
 		
 		var hex = item.find('canvas');
-		var ico_overlay = hex[0].getContext('2d');
-		ico_overlay.beginPath();
-		ico_overlay.moveTo(COORDS[5][0],COORDS[5][1]);
-		for (var j = 0; j < COORDS.length; j++) {
-            ico_overlay.lineTo(COORDS[j][0],COORDS[j][1]);
-        }
-        ico_overlay.closePath();
-        ico_overlay.fillStyle = '#' + _self.overlay_color;
-        ico_overlay.fill();
-        ico_overlay.clip();
-
+		
+		
+		canvasHex(hex[0], COORDS, _self.overlay_color);
 
         item.data({
         	images: _self.images,
@@ -110,4 +130,21 @@ var addMargin = function(_self){
 			$(_self).css('margin-top', (660 - showHeight)/2)
 		}
 	}
+}
+
+var canvasHex = function(elements, coords, color){
+	var ico_overlay = elements.getContext('2d');
+	ico_overlay.beginPath();
+	ico_overlay.moveTo(coords[5][0],coords[5][1]);
+	for (var j = 0; j < coords.length; j++) {
+        ico_overlay.lineTo(coords[j][0],coords[j][1]);
+    }
+    ico_overlay.closePath();
+    ico_overlay.fillStyle = '#' + color;
+    ico_overlay.fill();
+    ico_overlay.clip();
+}
+
+var canvasHexBorder = function(elements, coords, color){
+
 }

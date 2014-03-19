@@ -1,5 +1,47 @@
 body {
-  background-color: #03a17c; }
+  background-color: #03a17c;
+  margin: 0px;
+  padding: 0px; }
+
+#nav {
+  padding: 0px;
+  margin: 0px auto;
+  list-style: none;
+  width: 296px;
+  height: 193px; }
+  #nav .nav-item {
+    width: 92px;
+    height: 105px;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform .3s ease-in-out, opacity .3s ease-in-out;
+    opacity: 0; }
+    #nav .nav-item#work {
+      -webkit-transform: translate(102px, 0px); }
+    #nav .nav-item#logo {
+      margin-top: -23px;
+      margin-left: 102px;
+      opacity: 1;
+      cursor: default; }
+    #nav .nav-item#logo-clone {
+      margin-top: -275px;
+      margin-left: 102px;
+      opacity: 1; }
+    #nav .nav-item#food {
+      margin-top: -105px;
+      margin-left: 204px;
+      -webkit-transform: translate(-102px, 0px); }
+    #nav .nav-item#book {
+      margin-top: -17px;
+      margin-left: 51px;
+      -webkit-transform: translate(51px, -88px); }
+    #nav .nav-item#photo {
+      margin-top: -105px;
+      margin-left: 153px;
+      -webkit-transform: translate(-51px, -88px); }
+    #nav .nav-item.show#work, #nav .nav-item.show#food, #nav .nav-item.show#book, #nav .nav-item.show#photo {
+      -webkit-transform: translate(0px, 0px);
+      opacity: 1; }
 
 #hex-list {
   width: 1285px;

@@ -1,6 +1,66 @@
 body {
-  background-color: #03a17c; }
+    background-color: #03a17c;
+    margin: 0px;
+    padding: 0px;
+}
+#nav {
+    padding:0px;
+    margin: 0px auto;
+    list-style: none;
+    width: 296px;
+    height: 193px;
+    .nav-item {
+        width: 92px;
+        height: 105px;
+        position: relative;
+        cursor: pointer;
+        -webkit-transition: -webkit-transform .3s ease-in-out, opacity .3s ease-in-out;
+        opacity: 0;
+        &#work {
+            -webkit-transform: translate(102px, 0px);
+        }
 
+        &#logo {
+            margin-top: -23px;
+            margin-left: 102px;
+            opacity: 1;
+            cursor: default;
+        }
+
+
+        &#logo-clone {
+            margin-top: -275px;
+            margin-left: 102px;
+            opacity: 1;
+        }
+
+        &#food {
+            margin-top: -105px;
+            margin-left: 204px;
+            -webkit-transform: translate(-102px, 0px);
+        }
+
+        &#book {
+            margin-top: -17px;
+            margin-left: 51px;
+            -webkit-transform: translate(51px, -88px);
+        }
+
+        &#photo {
+            margin-top: -105px;
+            margin-left: 153px;
+            -webkit-transform: translate(-51px, -88px);
+        }
+
+        &.show {
+            &#work,&#food,&#book,&#photo {
+                -webkit-transform: translate(0px, 0px);
+                opacity: 1;
+            }
+        }
+
+    }
+}
 
 #hex-list {
     width: 1285px;
