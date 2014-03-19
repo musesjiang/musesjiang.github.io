@@ -77,7 +77,7 @@ var createList = function(){
 	for (i in IMG_CONFIG) {
 		var _self = IMG_CONFIG[i];
 
-		var item = $('<li class="hex-item"><a href="#"><img src="src/'+ _self.name +'/icon_'+ DEVICE_PIXEL_RATIO_IMG_TYPE +'.png"/><canvas class="overlay" width="301" height="347"></canvas></a></li>');
+		var item = $('<li class="hex-item"><img src="src/'+ _self.name +'/icon_'+ DEVICE_PIXEL_RATIO_IMG_TYPE +'.png"/><canvas class="overlay" width="301" height="347"></canvas></li>');
 		
 		var hex = item.find('canvas');
 		var ico_overlay = hex[0].getContext('2d');
@@ -100,3 +100,14 @@ var createList = function(){
     }
 	
 };
+
+var addMargin = function(_self){
+	var originImage  = new Image();
+	originImage.src = _self.src;
+	originImage.onload = function(){
+		var showHeight = originImage.height / originImage.width * 550;
+		if (showHeight < 660) {
+			$(_self).css('margin-top', (660 - showHeight)/2)
+		}
+	}
+}

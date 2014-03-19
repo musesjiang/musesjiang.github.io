@@ -13,34 +13,29 @@ body {
         height: 347px;
         position: relative;
         margin-top: -65px;
+        cursor: pointer;
 
-        a {
-            display: block;
-            width: 100%;
-            height: 100%;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            max-width: 301px;
+            max-height: 347px;
+        }
 
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 1;
-                max-width: 301px;
-                max-height: 347px;
-            }
+        .overlay {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            opacity: 0;
+            -webkit-transition: opacity .2s ease-in-out;
+        }
 
+        &:hover {
             .overlay {
-                position: absolute;
-                left: 0;
-                top: 0;
-                z-index: 2;
-                opacity: 0;
-                -webkit-transition: opacity .2s ease-in-out;
-            }
-
-            &:hover {
-                .overlay {
-                    opacity: .3;
-                }
+                opacity: .3;
             }
         }
 
@@ -121,7 +116,10 @@ body {
     img {
         display: block;
         width: 100%;
-        height: 100%;
+        transition: margin-top .2s ease-in-out;
+        -webkit-transition: margin-top .2s ease-in-out;
+        -moz-transition: margin-top .2s ease-in-out;
+        -o-transition: margin-top .2s ease-in-out;
     }
 
     .roundabout-holder {
@@ -130,14 +128,13 @@ body {
         list-style: none;
         padding: 0;
         margin: 100px auto;
-        height: 660px;
         width: 700px;
+        height: 660px;
     }
     .roundabout-moveable-item {
         cursor: pointer;
-        overflow: hidden;
-        height: 660px;
         width: 550px;
+        height: 660px;
         margin: 0 0 5px;
     }
 }

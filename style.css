@@ -10,27 +10,24 @@ body {
     width: 301px;
     height: 347px;
     position: relative;
-    margin-top: -65px; }
-    #hex-list .hex-item a {
-      display: block;
-      width: 100%;
-      height: 100%; }
-      #hex-list .hex-item a img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        max-width: 301px;
-        max-height: 347px; }
-      #hex-list .hex-item a .overlay {
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: 2;
-        opacity: 0;
-        -webkit-transition: opacity .2s ease-in-out; }
-      #hex-list .hex-item a:hover .overlay {
-        opacity: .3; }
+    margin-top: -65px;
+    cursor: pointer; }
+    #hex-list .hex-item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      max-width: 301px;
+      max-height: 347px; }
+    #hex-list .hex-item .overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+      opacity: 0;
+      -webkit-transition: opacity .2s ease-in-out; }
+    #hex-list .hex-item:hover .overlay {
+      opacity: .3; }
     #hex-list .hex-item:nth-child(22n+1) {
       margin-left: 656px;
       margin-top: -347px; }
@@ -82,18 +79,20 @@ body {
   #carousel img {
     display: block;
     width: 100%;
-    height: 100%; }
+    transition: margin-top .2s ease-in-out;
+    -webkit-transition: margin-top .2s ease-in-out;
+    -moz-transition: margin-top .2s ease-in-out;
+    -o-transition: margin-top .2s ease-in-out; }
   #carousel .roundabout-holder {
     padding: 0px;
     position: relative;
     list-style: none;
     padding: 0;
     margin: 100px auto;
-    height: 660px;
-    width: 700px; }
+    width: 700px;
+    height: 660px; }
   #carousel .roundabout-moveable-item {
     cursor: pointer;
-    overflow: hidden;
-    height: 660px;
     width: 550px;
+    height: 660px;
     margin: 0 0 5px; }

@@ -42,7 +42,7 @@ $(function(){
         } else {
             roundabout_holder = $('<ul id="'+ _name +'" class="roundabout-holder"></ul>');
             for (i in _images) {
-                roundabout_holder.append($('<li class="roundabout-moveable-item"><img src="src/'+ _name +'/'+ _images[i] +'"/></li>'));
+                roundabout_holder.append($('<li class="roundabout-moveable-item"><img src="src/'+ _name +'/'+ _images[i] +'" onload="addMargin(this)"/></li>'));
             }
             roundabout_holder.appendTo('#carousel').children('li').first().addClass('roundabout-in-focus');
             $('#' + _name).roundabout({
