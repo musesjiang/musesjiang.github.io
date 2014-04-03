@@ -1,0 +1,11 @@
+function Jianglai(){
+	this.name = 'jianglai';
+	alert(this.name);
+}
+
+Jianglai.prototype = {
+	name: 'jianglai2',
+}
+
+
+var test = new Jianglai();

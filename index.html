@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<title>Jianglai.me</title>
@@ -15,74 +15,57 @@
 </div>
 
 <ul id="nav">
-    <li class="nav-item active" id="work"><canvas width="91" height="105"></canvas></li>
-    <li class="nav-item" id="food"><canvas width="91" height="105"></canvas></li>
-    <li class="nav-item" id="book"><canvas width="91" height="105"></canvas></li>
-    <li class="nav-item" id="photo"><canvas width="91" height="105"></canvas></li>
-    <li class="nav-item" id="logo-clone"><canvas width="91" height="105"></canvas></li>
-    <li class="nav-item" id="logo"><canvas width="91" height="105"></canvas></li>
+    <li class="nav-item active" id="work"><canvas width="91" height="105"></canvas><a href="#"><img src="images/work.png" /></a></li>
+    <li class="nav-item" id="food"><canvas width="91" height="105"></canvas><a href="#"><img src="images/food.png" /></a></li>
+    <li class="nav-item" id="book"><canvas width="91" height="105"></canvas><a href="#"><img src="images/book.png" /></a></li>
+    <li class="nav-item" id="photo"><canvas width="91" height="105"></canvas><a href="#"><img src="images/photo.png" /></a></li>
+    <!-- <li class="nav-item" id="logo-clone"><canvas width="91" height="105"></canvas></li> -->
+    <li class="nav-item" id="logo"><canvas width="91" height="105"></canvas><a href="#"><img src="images/logo.png" /></a></li>
+    <canvas id="test" width="91" height="105"></canvas>
 </ul>
 
 <ul id="hex-list">
     
 </ul>
 
-<div id="carousel" style="display:none;">
-</div>
-
 
 <script src="./js/jquery.min.js"></script>
 <script src="./js/jquery.roundabout.min.js"></script>
 <script src="./js/jquery.easing.js"></script>
+<script src="./js/jquery.tmpl.min.js"></script>
 <script src="./js/img_config.js"></script>
+
+<script id="galleryTmpl" type="text/x-jquery-tmpl">
+<div class="gallery-wrapper">
+    <div class="mask"></div>
+    <div id="gallery-img" style="top: ${offsetY}px; left: ${offsetX}px">
+        <a href="${url}" class="link-show-origin" target="_blank" title="点击在新窗口查看原图">
+        <img src="${url}" style="" />
+        </a>
+    </div>
+    <div class="gallery-img-name hide" style="display: block;">
+        <span class="name">${filename}</span>
+    </div>
+    <div class="loading-indicator"></div>
+    <div class="gallery-mask" style="display: block;"></div>
+    <ul class="gallery"></ul>
+</div>
+</script>
+
+<script id="galleryListTmpl" type="text/x-jquery-tmpl">
+<li class="link" data-origin-width=${width} data-origin-height=${height} >
+    <a href="javascript:;">
+        <img src="${url}" />
+    </a>
+</li>
+</script>
+
+
+
 <script type="text/javascript">
     
 $(function(){
-    createNav();
-    createList();
-    
-    $('#hex-list').on('click', 'li', function(e){
-        $('#carousel').show();
-        var _self = $(this);
-        var _name = _self.data('name');
-        var _images = _self.data('images');
-        var roundabout_holder = $('#' + _name);
-
-        if (roundabout_holder.length) {
-            roundabout_holder.show();
-        } else {
-            roundabout_holder = $('<ul id="'+ _name +'" class="roundabout-holder"></ul>');
-            for (i in _images) {
-                roundabout_holder.append($('<li class="roundabout-moveable-item"><img src="src/'+ _name +'/'+ _images[i] +'" onload="addMargin(this)"/></li>'));
-            }
-            roundabout_holder.appendTo('#carousel').children('li').first().addClass('roundabout-in-focus');
-            $('#' + _name).roundabout({
-                minScale: -0.1,
-                duration: 500,
-                css3Scale: true,
-                tilt: 0.02,
-                responsive: true,
-                minOpacity: 1.0
-            });
-        }
-    })
-
-    $('#carousel').on('click', function(){
-        $(this).hide().find('ul').hide();
-    });
-
-    $('#carousel').on('click', '.roundabout-in-focus', function(e){
-        e.stopPropagation();
-        var _self = $(this);
-        window.open(_self.find('img').attr('src'));
-    });
-
-    $('#nav').hover(function(){
-        $(this).children().addClass('show');
-    }, function(){
-        $(this).children().removeClass('show');
-    })
-
+    var jianglai = new Jianglai();
 })
 
 
